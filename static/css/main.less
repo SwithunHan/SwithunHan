@@ -1,60 +1,32 @@
-
-div {
-  width: 100px;
-  height: 100px;
-  float: left;
+html,body{
+  margin: 0;
+  padding: 0;
+  height:100%;
+}
+#wrap{
+  width: 100%;
+  overflow: hidden;
+  background: #ccc;
+}
+#main{
+  width: 100%;
+  background: #ccc;
   position: relative;
+  transition: 2s;
 }
-
-#box1 {
-  background-color: red;
-  animation: box1 2s;
+.page{
+  width:100%;
+  margin:0;
 }
-
-#box2 {
-  background-color: green;
-  animation: box2 2s;
+#page1{
+  background:#E4E6CE;
 }
-
-#box3 {
-  background-color: blue;
-  animation: box3 2s;
+#page2{
+  background:#6CE26C;
 }
-
-#box4 {
-  background-color: yellow;
-  animation: box4 2s;
+#page3{
+  background:#BF4938;
 }
-
-@keyframes box1 {
-  from {
-    top: -100px;
-  }
-  to {
-    top:0;
-  }
-}
-@keyframes box2 {
-  from {
-    top: -120px;
-  }
-  to {
-    top:0;
-  }
-}
-@keyframes box3 {
-  from {
-    top: -140px;
-  }
-  to {
-    top:0;
-  }
-}
-@keyframes box4 {
-  from {
-    top: -160px;
-  }
-  to {
-    top:0;
-  }
-}
+#page4{
+  background:#2932E1;
+} 
