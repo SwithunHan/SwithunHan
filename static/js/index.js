@@ -1,6 +1,5 @@
 let len = document.documentElement.clientHeight;
 let now = 0;
-
 let pages = document.getElementsByClassName("page");
 let wrap = document.getElementById("wrap");
 let main = document.getElementById("main");
@@ -30,4 +29,22 @@ function scrollFun(e) {
         now += len;
         main.style.top = now + "px";
     }
+}
+let btn = document.getElementById("btn");
+let left = document.getElementById("left");
+let right = document.getElementById("right");
+
+function clickHandle() {
+    addClass(left,"lfAction");
+    addClass(right,"rgAction");
+};
+function addClass(element,value) {
+    let newClassName = element.className;
+    if (!newClassName) {
+        newClassName = value;
+    } else {
+        newClassName+= " ";
+        newClassName+= value;
+    }
+    element.className = newClassName;
 }

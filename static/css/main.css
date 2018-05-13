@@ -2,7 +2,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 #wrap {
   width: 100%;
@@ -19,15 +18,59 @@ body {
   width: 100%;
   margin: 0;
 }
-#page1 {
-  background: #E4E6CE;
-}
-#page2 {
-  background: #6CE26C;
-}
+#page1,
 #page3 {
-  background: #BF4938;
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
 }
+#page2,
 #page4 {
-  background: #2932E1;
+  background: #000000;
+}
+#left {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -100%;
+  top: -100%;
+  background: grey;
+  transform: rotate(-45deg);
+}
+#right {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  right: -100%;
+  bottom: -100%;
+  background: #f1f1f1;
+  transform: rotate(-45deg);
+}
+.lfAction {
+  animation: left 2s;
+  animation-fill-mode: forwards;
+}
+.rgAction {
+  animation: right 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes left {
+  from {
+    left: -100%;
+    top: -100%;
+  }
+  to {
+    left: -200%;
+    top: -200%;
+  }
+}
+@keyframes right {
+  from {
+    right: -100%;
+    bottom: -100%;
+  }
+  to {
+    right: -200%;
+    bottom: -200%;
+  }
 }
