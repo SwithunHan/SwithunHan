@@ -30,7 +30,7 @@ function scrollFun(e) {
         main.style.top = now + "px";
     }
 }
-let btn = document.getElementById("btn");
+
 let left = document.getElementById("left");
 let right = document.getElementById("right");
 

@@ -13,6 +13,7 @@ html, body {
 #main {
   width: 100%;
   background: #ccc;
+  top:0;
   position: relative;
   transition: 2s;
 }
@@ -34,25 +35,28 @@ html, body {
 
 #left {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  left: -100%;
-  top: -100%;
+  width: 100%;
+  height:100%;
+  left:-40%;
+  top: -40%;
   background: grey;
   transform: rotate(-45deg);
+  border-bottom: 10px solid #f1f1f1;
 
 }
-
 #right {
   position: absolute;
-  width: 200%;
-  height: 200%;
-  right:-100%;
-  bottom:-100%;
+  width: 100%;
+  height:100%;
+  right:-40%;
+  bottom:-40%;
   background: #f1f1f1;
   transform: rotate(-45deg);
+  border-top: 10px solid grey;
 }
-
+#content{
+  position: absolute;
+}
 .lfAction {
   animation: left 2s;
   animation-fill-mode: forwards;
@@ -64,21 +68,21 @@ html, body {
 
 @keyframes left {
   from {
-    left: -100%;
-    top: -100%;
+    left:-40%;
+    top: -40%;
   }
   to {
-    left: -200%;
-    top: -200%;
+    left: -100%;
+    top: -100%;
   }
 }
 @keyframes right {
   from {
-    right:-100%;
-    bottom:-100%;
+    right:-40%;
+    bottom:-40%;
   }
   to {
-    right:-200%;
-    bottom:-200%;
+    right:-100%;
+    bottom:-100%;
   }
 }
