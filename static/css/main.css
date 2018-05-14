@@ -23,57 +23,83 @@ body {
   overflow: hidden;
 }
 #left {
+  display: flex;
   position: absolute;
-  width: 100%;
+  width: 50%;
   height: 100%;
-  left: -50%;
+  left: 0;
   background: grey;
+}
+#left #open {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, 0);
+  z-index: 99;
+  border: none;
+  background: red;
 }
 #right {
   position: absolute;
-  width: 100%;
+  width: 50%;
   height: 100%;
-  right: -50%;
+  right: 0;
   background: #f1f1f1;
 }
-#content {
-  width: 50%;
-  height: 50%;
-  position: absolute;
-}
-.lfAction {
-  animation: left 2s;
+.openLeft {
+  animation: openLeft 2s;
   animation-fill-mode: forwards;
 }
-.rgAction {
-  animation: right 2s;
+.openRight {
+  animation: openRight 2s;
   animation-fill-mode: forwards;
 }
-.conAction {
-  animation: content 2s;
+.closeLeft {
+  animation: closeLeft 2s;
   animation-fill-mode: forwards;
 }
-@keyframes left {
-  from {
-    left: -50%;
-  }
-  to {
-    left: -100%;
-  }
+.closeRight {
+  animation: closeRight 2s;
+  animation-fill-mode: forwards;
 }
-@keyframes right {
-  from {
-    right: -50%;
-  }
-  to {
-    right: -100%;
-  }
+.show {
+  display: block;
 }
-@keyframes content {
+.hide {
+  display: none;
+}
+@keyframes openLeft {
   from {
     left: 0;
   }
   to {
-    left: -100%;
+    left: -50%;
+  }
+}
+@keyframes openRight {
+  from {
+    right: 0;
+  }
+  to {
+    right: -50%;
+  }
+}
+@keyframes closeLeft {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes closeRight {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 0;
   }
 }

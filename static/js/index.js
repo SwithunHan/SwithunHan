@@ -1,20 +1,26 @@
 
 let left = document.getElementById("left");
 let right = document.getElementById("right");
-let content = document.getElementById("content");
-
-function clickHandle() {
-    addClass(left,"lfAction");
-    addClass(content,"conAction");
-    addClass(right,"rgAction");
-};
+let open = document.getElementById("open");
+function openBox() {
+    removeClass(left,"closeLeft");
+    removeClass(right,"closeRight");
+    removeClass(open,"show");
+    addClass(left,"openLeft");
+    addClass(right,"openRight");
+    addClass(open,"hide")
+}
+function closeBox() {
+    removeClass(left,"openLeft");
+    removeClass(right,"openRight");
+    removeClass(open,"hide");
+    addClass(left,"closeLeft");
+    addClass(right,"closeRight");
+    addClass(open,"show");
+}
 function addClass(element,value) {
-    let newClassName = element.className;
-    if (!newClassName) {
-        newClassName = value;
-    } else {
-        newClassName+= " ";
-        newClassName+= value;
-    }
-    element.className = newClassName;
+    element.classList.add(value)
+}
+function removeClass(element,value) {
+    element.classList.remove(value)
 }
