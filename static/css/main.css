@@ -2,14 +2,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-#wrap {
-  width: 100%;
-  overflow: hidden;
-  background: #ccc;
+  height: 100%;
 }
 #main {
   width: 100%;
+  height: 100%;
   background: #ccc;
   top: 0;
   position: relative;
@@ -17,39 +14,31 @@ body {
 }
 .page {
   width: 100%;
+  height: 100%;
   margin: 0;
 }
-#page1,
-#page3 {
+#page1 {
   position: relative;
   background: #ffffff;
   overflow: hidden;
-}
-#page2,
-#page4 {
-  background: #000000;
 }
 #left {
   position: absolute;
   width: 100%;
   height: 100%;
-  left: -40%;
-  top: -40%;
+  left: -50%;
   background: grey;
-  transform: rotate(-45deg);
-  border-bottom: 10px solid #f1f1f1;
 }
 #right {
   position: absolute;
   width: 100%;
   height: 100%;
-  right: -40%;
-  bottom: -40%;
+  right: -50%;
   background: #f1f1f1;
-  transform: rotate(-45deg);
-  border-top: 10px solid grey;
 }
 #content {
+  width: 50%;
+  height: 50%;
   position: absolute;
 }
 .lfAction {
@@ -60,23 +49,31 @@ body {
   animation: right 2s;
   animation-fill-mode: forwards;
 }
+.conAction {
+  animation: content 2s;
+  animation-fill-mode: forwards;
+}
 @keyframes left {
   from {
-    left: -40%;
-    top: -40%;
+    left: -50%;
   }
   to {
     left: -100%;
-    top: -100%;
   }
 }
 @keyframes right {
   from {
-    right: -40%;
-    bottom: -40%;
+    right: -50%;
   }
   to {
     right: -100%;
-    bottom: -100%;
+  }
+}
+@keyframes content {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
   }
 }
