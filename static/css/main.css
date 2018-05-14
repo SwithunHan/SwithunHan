@@ -29,6 +29,17 @@ body {
   height: 100%;
   left: 0;
   background: grey;
+  justify-content: center;
+}
+#left #head {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  margin-top: 50px;
+  border-radius: 50%;
+}
+#left #head img {
+  width: 100%;
 }
 #left #open {
   width: 50px;
