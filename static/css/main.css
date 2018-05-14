@@ -29,24 +29,40 @@ body {
   height: 100%;
   left: 0;
   background: grey;
+  flex-direction: row;
   justify-content: center;
+  text-align: center;
+  color: #fff;
 }
-#left #head {
+#left .title {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 50px;
+}
+#left .content {
+  flex: 4;
+}
+#left .content #head {
   width: 150px;
   height: 150px;
   overflow: hidden;
-  margin-top: 50px;
   border-radius: 50%;
+  margin: 50px auto;
 }
-#left #head img {
+#left .content #head img {
   width: 100%;
+}
+#left .content #info div {
+  margin-top: 50px;
 }
 #left #open {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  position: absolute;
-  right: 0;
+  position: fixed;
+  right: 50%;
   top: 50%;
   transform: translate(50%, 0);
   z-index: 99;
