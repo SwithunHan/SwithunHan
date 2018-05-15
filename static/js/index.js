@@ -5,7 +5,6 @@ let open = document.getElementById("open");
 function openBox() {
     removeClass(left,"closeLeft");
     removeClass(right,"closeRight");
-    removeClass(open,"show");
     addClass(left,"openLeft");
     addClass(right,"openRight");
     addClass(open,"hide")
@@ -13,10 +12,11 @@ function openBox() {
 function closeBox() {
     removeClass(left,"openLeft");
     removeClass(right,"openRight");
-    removeClass(open,"hide");
+    setTimeout(function () {
+        removeClass(open,"hide");
+    },2000);
     addClass(left,"closeLeft");
     addClass(right,"closeRight");
-    addClass(open,"show");
 }
 function addClass(element,value) {
     element.classList.add(value)
