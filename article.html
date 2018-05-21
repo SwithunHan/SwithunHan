@@ -2,9 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <title>article</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .info{
+            height: 6.25rem;
+        }
+        img{
+            display: block;
+            float: left;
+        }
+        .text{
+            height: 100%;
+            float: left;
+        }
+        .text *{
+            height: 50%;
+            line-height: 3.125rem;
+        }
+        .cleanfix:after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .cleanfix{
+            zoom: 1;
+        }
+        .price{
+            height: 100%;
+            float: right;
+        }
+        .price p{
+            line-height: 6.25rem;
+        }
+    </style>
 </head>
 <body>
-    啦啦啦啦啦啦啦啦
+<div class="wapper">
+    <div class="info cleanfix">
+        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
+        <div class="text">
+            <h3>菜名</h3>
+            <p>介绍</p>
+        </div>
+        <div class="price">
+            <p>$5.5</p>
+        </div>
+    </div>
+    <div class="info cleanfix">
+        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
+        <div class="text">
+            <h3>菜名</h3>
+            <p>介绍</p>
+        </div>
+        <div class="price">
+            <p>$5.5</p>
+        </div>
+    </div>
+    <div class="info cleanfix">
+        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
+        <div class="text">
+            <h3>菜名</h3>
+            <p>介绍</p>
+        </div>
+        <div class="price">
+            <p>$5.5</p>
+        </div>
+    </div>
+    <div class="info cleanfix">
+        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
+        <div class="text">
+            <h3>菜名</h3>
+            <p>介绍</p>
+        </div>
+        <div class="price">
+            <p>$5.5</p>
+        </div>
+    </div>
+    <div class="info cleanfix">
+        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
+        <div class="text">
+            <h3>菜名</h3>
+            <p>介绍</p>
+        </div>
+        <div class="price">
+            <p>$5.5</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
