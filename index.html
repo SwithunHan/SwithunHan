@@ -2,80 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SwithunHan</title>
-    <link rel="stylesheet" href="static/css/main.css">
+    <title>Title</title>
+    <style>
+        canvas{
+            margin-left: 50%;
+            transform: translate(-50%,0);
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-<div id="main">
-    <div id="page1" class="page">
-        <div id="top">
-            <button id="next">下一页</button>
-            <img src="static/images/webpack.png" height="225" width="225"/></div>
-        <div id="bottom">
-            <button id="close" onclick="closeBox()">上一页</button>
-        </div>
-        <!--<div id="left">-->
-            <!--<button id="open" onclick="openBox()">下一页</button>-->
-            <!--<div class="title">-->
-                <!--<span>个</span>-->
-                <!--<span>人</span>-->
-                <!--<span>信</span>-->
-                <!--<span>息</span>-->
-            <!--</div>-->
-            <!--<div class="content">-->
-                <!--<div class="head">-->
-                        <!--<img src="./static/images/head.jpg" alt="">-->
-                    <!--</div>-->
-                <!--<div class="info">-->
-                    <!--<div id="name">-->
-                        <!--<p>韩旭冬</p>-->
-                    <!--</div>-->
-                    <!--<div id="work">-->
-                        <!--<p><span>期望职位：</span>前端工程师</p>-->
-                    <!--</div>-->
-                    <!--<div id="address">-->
-                        <!--<address><span>期望工作地：</span>北京</address>-->
-                    <!--</div>-->
-                    <!--<div id="tel">-->
-                        <!--<p><span>联系电话：</span>18833567817</p>-->
-                    <!--</div>-->
-
-                    <!--<div id="email">-->
-                        <!--<p><span>邮箱：</span>2320720405@qq.com</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div id="right">-->
-            <!--<div class="content">-->
-                <!--<div class="head">-->
-                         <!--<img src="./static/images/logo.jpg" alt="">-->
-                    <!--</div>-->
-                <!--<div class="info">-->
-                    <!--<div id="school">-->
-                        <!--<p><span>毕业院校：</span>石家庄学院</p>-->
-                    <!--</div>-->
-                    <!--<div id="profession">-->
-                        <!--<p><span>所学专业：</span>软件工程</p>-->
-                    <!--</div>-->
-                    <!--<div id="course">-->
-                        <!--<p><span>所学课程：</span>C语言、数据结构、计算机网络、</p>-->
-                        <!--<p>软件工程、编译原理、计算机组成原理</p>-->
-                    <!--</div>-->
-                    <!--<div id="self">-->
-                        <!--<p><span>自学技术：</span>h5、css3、js及js延伸</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="title">-->
-                <!--<span>教</span>-->
-                <!--<span>育</span>-->
-                <!--<span>经</span>-->
-                <!--<span>历</span>-->
-            <!--</div>-->
-        <!--</div>-->
-    </div>
-</div>
+<canvas id="canvas" width="500" height="500"></canvas>
 </body>
-<script src="static/js/index.js"></script>
+<script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    roundedRect(ctx,125,150,250,200,10);
+    roundedRect(ctx,160,180,180,140,10);
+    ctx.beginPath();
+    ctx.moveTo(250,150);
+    ctx.lineWidth=10;
+    ctx.lineCap="round";
+    ctx.lineTo(170,110);
+    ctx.moveTo(270,150);
+    ctx.lineTo(320,90);
+    ctx.moveTo(185,250);
+    ctx.lineTo(230,220);
+    ctx.moveTo(270,220);
+    ctx.lineTo(320,250);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.moveTo(250,270);
+    ctx.arc(235,270,15,0,Math.PI);
+    ctx.moveTo(280,270);
+    ctx.arc(265,270,15,0,Math.PI);
+    ctx.moveTo(180,350);
+    ctx.arc(180,350,15,0,Math.PI);
+    ctx.moveTo(320,350);
+    ctx.arc(320,350,15,0,Math.PI);
+    ctx.stroke();
+    //    drawGrid(10,10,1,"grey");
+    function roundedRect(ctx,x,y,width,height,radius){
+        ctx.beginPath();
+        ctx.lineWidth=10;
+        ctx.moveTo(x,y+radius);
+        ctx.lineTo(x,y+height-radius);
+        ctx.quadraticCurveTo(x,y+height,x+radius,y+height);
+        ctx.lineTo(x+width-radius,y+height);
+        ctx.quadraticCurveTo(x+width,y+height,x+width,y+height-radius);
+        ctx.lineTo(x+width,y+radius);
+        ctx.quadraticCurveTo(x+width,y,x+width-radius,y);
+        ctx.lineTo(x+radius,y);
+        ctx.quadraticCurveTo(x,y,x,y+radius);
+        ctx.stroke();
+    }
+    function  drawGrid(stepX, stepY, lineWidth, color){
+        ctx.save();
+        ctx.lineWidth = lineWidth;
+        ctx.strokeStyle = color;
+        for(let i = stepY + 0.5; i < ctx.canvas.height; i += stepY){
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(ctx.canvas.width, i);
+            ctx.stroke();
+        }
+
+
+        for(let i = stepX + 0.5; i < ctx.canvas.width; i += stepX){
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, ctx.canvas.height);
+            ctx.stroke();
+        }
+
+
+        ctx.restore();
+    }
+</script>
 </html>

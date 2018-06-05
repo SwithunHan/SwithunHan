@@ -2,97 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>article</title>
+    <title>Title</title>
     <style>
-        *{
-            margin:0;
-            padding: 0;
-        }
-        .info{
-            height: 6.25rem;
-        }
-        img{
-            display: block;
-            float: left;
-        }
-        .text{
-            height: 100%;
-            float: left;
-        }
-        .text *{
-            height: 50%;
-            line-height: 3.125rem;
-        }
-        .cleanfix:after{
-            content: "";
-            clear: both;
-            display: table;
-        }
-        .cleanfix{
-            zoom: 1;
-        }
-        .price{
-            height: 100%;
-            float: right;
-        }
-        .price p{
-            line-height: 6.25rem;
+        canvas{
+            margin-left: 50%;
+            transform: translate(-50%,0);
+            border:1px solid black;
         }
     </style>
 </head>
 <body>
-<div class="wapper">
-    <div class="info cleanfix">
-        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
-        <div class="text">
-            <h3>菜名</h3>
-            <p>介绍</p>
-        </div>
-        <div class="price">
-            <p>$5.5</p>
-        </div>
-    </div>
-    <div class="info cleanfix">
-        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
-        <div class="text">
-            <h3>菜名</h3>
-            <p>介绍</p>
-        </div>
-        <div class="price">
-            <p>$5.5</p>
-        </div>
-    </div>
-    <div class="info cleanfix">
-        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
-        <div class="text">
-            <h3>菜名</h3>
-            <p>介绍</p>
-        </div>
-        <div class="price">
-            <p>$5.5</p>
-        </div>
-    </div>
-    <div class="info cleanfix">
-        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
-        <div class="text">
-            <h3>菜名</h3>
-            <p>介绍</p>
-        </div>
-        <div class="price">
-            <p>$5.5</p>
-        </div>
-    </div>
-    <div class="info cleanfix">
-        <img src="./static/images/webpack.png" alt="webpack" width="100" height="100">
-        <div class="text">
-            <h3>菜名</h3>
-            <p>介绍</p>
-        </div>
-        <div class="price">
-            <p>$5.5</p>
-        </div>
-    </div>
-</div>
+<canvas id="canvas" width="500" height="500"></canvas>
 </body>
+<script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+
+    roundedRect(ctx,125,150,250,200,10);
+    roundedRect(ctx,160,180,180,140,10);
+    ctx.beginPath();
+    ctx.moveTo(250,150);
+    ctx.lineWidth=10;
+    ctx.lineCap="round";
+    ctx.lineTo(170,110);
+    ctx.moveTo(270,150);
+    ctx.lineTo(320,90);
+    ctx.moveTo(185,250);
+    ctx.lineTo(230,220);
+    ctx.moveTo(270,220);
+    ctx.lineTo(320,250);
+    ctx.stroke();
+    ctx.closePath();
+    ctx.moveTo(250,270);
+    ctx.arc(235,270,15,0,Math.PI);
+    ctx.moveTo(280,270);
+    ctx.arc(265,270,15,0,Math.PI);
+    ctx.moveTo(180,350);
+    ctx.arc(180,350,15,0,Math.PI);
+    ctx.moveTo(320,350);
+    ctx.arc(320,350,15,0,Math.PI);
+    ctx.stroke();
+    //    drawGrid(10,10,1,"grey");
+    function roundedRect(ctx,x,y,width,height,radius){
+        ctx.beginPath();
+        ctx.lineWidth=10;
+        ctx.moveTo(x,y+radius);
+        ctx.lineTo(x,y+height-radius);
+        ctx.quadraticCurveTo(x,y+height,x+radius,y+height);
+        ctx.lineTo(x+width-radius,y+height);
+        ctx.quadraticCurveTo(x+width,y+height,x+width,y+height-radius);
+        ctx.lineTo(x+width,y+radius);
+        ctx.quadraticCurveTo(x+width,y,x+width-radius,y);
+        ctx.lineTo(x+radius,y);
+        ctx.quadraticCurveTo(x,y,x,y+radius);
+        ctx.stroke();
+    }
+    function  drawGrid(stepX, stepY, lineWidth, color){
+        ctx.save();
+        ctx.lineWidth = lineWidth;
+        ctx.strokeStyle = color;
+        for(let i = stepY + 0.5; i < ctx.canvas.height; i += stepY){
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(ctx.canvas.width, i);
+            ctx.stroke();
+        }
+
+
+        for(let i = stepX + 0.5; i < ctx.canvas.width; i += stepX){
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, ctx.canvas.height);
+            ctx.stroke();
+        }
+
+
+        ctx.restore();
+    }
+</script>
 </html>
