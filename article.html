@@ -12,60 +12,30 @@
     </style>
 </head>
 <body>
-<canvas id="canvas" width="500" height="500"></canvas>
+<canvas id="canvas" width="500" height="500">
+    <img src="pig.png" id="image" height="194" width="260"/></canvas>
 </body>
 <script>
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
-
-    roundedRect(ctx,125,150,250,200,10);
-    roundedRect(ctx,160,180,180,140,10);
-    ctx.beginPath();
-    ctx.moveTo(250,150);
-    ctx.lineWidth=10;
-    ctx.lineCap="round";
-    ctx.lineTo(170,110);
-    ctx.moveTo(270,150);
-    ctx.lineTo(320,90);
-    ctx.moveTo(185,250);
-    ctx.lineTo(230,220);
-    ctx.moveTo(270,220);
-    ctx.lineTo(320,250);
-    ctx.stroke();
-    ctx.closePath();
-    ctx.moveTo(250,270);
-    ctx.arc(235,270,15,0,Math.PI);
-    ctx.moveTo(280,270);
-    ctx.arc(265,270,15,0,Math.PI);
-    ctx.moveTo(180,350);
-    ctx.arc(180,350,15,0,Math.PI);
-    ctx.moveTo(320,350);
-    ctx.arc(320,350,15,0,Math.PI);
-    ctx.stroke();
-    //    drawGrid(10,10,1,"grey");
-    function roundedRect(ctx,x,y,width,height,radius){
-        ctx.beginPath();
-        ctx.lineWidth=10;
-        ctx.moveTo(x,y+radius);
-        ctx.lineTo(x,y+height-radius);
-        ctx.quadraticCurveTo(x,y+height,x+radius,y+height);
-        ctx.lineTo(x+width-radius,y+height);
-        ctx.quadraticCurveTo(x+width,y+height,x+width,y+height-radius);
-        ctx.lineTo(x+width,y+radius);
-        ctx.quadraticCurveTo(x+width,y,x+width-radius,y);
-        ctx.lineTo(x+radius,y);
-        ctx.quadraticCurveTo(x,y,x,y+radius);
-        ctx.stroke();
-    }
+    let image =document.getElementById("image");
+//    ctx.drawImage(image,0,0);
+    drawGrid(10,10,1,"grey");
+    ctx.fillRect(10,10,100,50);
+    ctx.translate(70,70);
+    ctx.fillRect(10,10,100,50);
     function  drawGrid(stepX, stepY, lineWidth, color){
         ctx.save();
         ctx.lineWidth = lineWidth;
         ctx.strokeStyle = color;
+        let j = 1;
         for(let i = stepY + 0.5; i < ctx.canvas.height; i += stepY){
             ctx.beginPath();
             ctx.moveTo(0, i);
             ctx.lineTo(ctx.canvas.width, i);
+            ctx.fillText(j,0,i*lineWidth + 5);
             ctx.stroke();
+            j++;
         }
 
 
